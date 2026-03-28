@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Jimi Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090c;
+    --bg-2: #111116;
+    --bg-3: #16161d;
+    --text: #f0f0f5;
+    --text-dim: #58586a;
+    --text-mid: #9090aa;
+    --blue: #00c8f0;
+    --red: #f02840;
+    --amber: #f0a800;
+    --green: #00e87a;
+    --violet: #a855f7;
+    --rule: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    border-bottom: 3px solid var(--text);
+  }
+
+  .edition-strip {
+    background: var(--text);
+    color: var(--bg);
+    padding: 0.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+  }
+
+  .masthead-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0 0;
+    text-align: center;
+  }
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    display: flex;
+    gap: 0.15em;
+    text-decoration: none;
+  }
+
+  .site-title-first { color: var(--text); }
+  .site-title-last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--blue);
+    text-shadow: 0 0 40px rgba(0,200,240,0.2);
+  }
+
+  .masthead-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .masthead-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-right: 1px solid var(--rule);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+  .masthead-nav a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+  .masthead-nav a.active { color: var(--text); border-bottom: 2px solid var(--text); }
+  .masthead-nav a.nav-blue:hover  { color: var(--blue); }
+  .masthead-nav a.nav-red:hover   { color: var(--red); }
+  .masthead-nav a.nav-amber:hover { color: var(--amber); }
+  .masthead-nav a.nav-green:hover { color: var(--green); }
+  .masthead-nav a.nav-violet:hover { color: var(--violet); }
+
+  /* PAGE HEADER */
+  .page-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+  }
+
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: var(--text);
+  }
+
+  .page-header-sub {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* MAIN LAYOUT */
+  .page-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* PROFILE SECTION */
+  .profile-section {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 0;
+  }
+
+  .profile-photo-col {
+    padding-right: 3rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.015) 10px,
+      rgba(255,255,255,0.015) 11px
+    );
+  }
+
+  .photo-placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+  }
+
+  .photo-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--blue);
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .credentials {
+    margin-top: 1.5rem;
+  }
+
+  .credential-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .credential-item:first-child { border-top: 1px solid var(--rule); }
+
+  .credential-item span:last-child {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .credential-tag {
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+    color: var(--blue);
+    text-transform: uppercase;
+  }
+
+  .cv-btn {
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cv-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 0;
+  }
+
+  .cv-btn:hover { color: var(--bg); }
+  .cv-btn:hover::before { transform: translateX(0); }
+  .cv-btn span { position: relative; z-index: 1; }
+
+  /* PROFILE TEXT */
+  .profile-text-col {
+    padding-left: 3rem;
+  }
+
+  .section-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .profile-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-headline em {
+    font-style: italic;
+    color: var(--text-mid);
+  }
+
+  .profile-body {
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    max-width: 580px;
+  }
+
+  .profile-body p + p { margin-top: 1.25rem; }
+  .profile-body strong { color: var(--text); font-weight: 400; }
+
+  /* AIGA CALLOUT */
+  .aga-callout {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-2);
+    border-left: 3px solid var(--blue);
+  }
+
+  .aga-callout-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .aga-callout-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .aga-callout-body {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  /* INTERESTS GRID */
+  .interests-header {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .interests-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .interests-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--rule);
+  }
+
+  .interest-card {
+    background: var(--bg);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    padding: 2rem 1.75rem;
+    border-right: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: background 0.25s;
+  }
+
+  .interest-card:last-child { border-right: none; }
+
+  .interest-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--ic);
+    box-shadow: 0 0 12px var(--ic);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .interest-card:hover::before { transform: scaleX(1); }
+  .interest-card:hover { background: var(--bg-2); }
+
+  .ic-motorsport { --ic: var(--red); }
+  .ic-food       { --ic: var(--amber); }
+  .ic-travel     { --ic: var(--green); }
+  .ic-painting   { --ic: var(--violet); }
+
+  .interest-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ic);
+    margin-bottom: 1rem;
+  }
+
+  .interest-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+  }
+
+  .interest-body {
+    font-size: 0.75rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+  }
+
+  .interest-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ic);
+    border-bottom: 1px solid var(--ic);
+    padding-bottom: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .profile-section { grid-template-columns: 1fr; }
+    .profile-photo-col { padding-right: 0; border-right: none; border-bottom: 1px solid var(--rule); padding-bottom: 2rem; margin-bottom: 2rem; }
+    .photo-frame { aspect-ratio: 4/3; max-width: 280px; }
+    .profile-text-col { padding-left: 0; }
+    .interests-grid { grid-template-columns: 1fr 1fr; }
+    .interest-card:nth-child(2) { border-right: none; }
+    .interest-card:nth-child(1), .interest-card:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  }
+
+  @media (max-width: 600px) {
+    .masthead-nav { flex-wrap: wrap; }
+    .interests-grid { grid-template-columns: 1fr; }
+    .interest-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .page-header { flex-direction: column; gap: 0.5rem; }
+    .edition-strip { display: none; }
+  }
+
+
+  html, body {
+    background: #09090c !important;
+    background-color: #09090c !important;
+  }
+  .masthead, .edition-strip, .page-header, .page-body,
+  .profile-section, .profile-photo-col, .profile-text-col,
+  .interests-header, .interests-grid, .interest-card,
+  .credentials, .credential-item, footer, main {
+    background-color: #09090c !important;
+  }
+  .photo-frame, .aga-callout { background-color: #111116 !important; }
+  .masthead-top { background-color: #09090c !important; }
+  .masthead-main { background-color: #09090c !important; }
+  .masthead-nav a { background-color: transparent !important; }
+  body { animation: pageFade 0.5s ease; }
+  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+</style>
+</head>
+<body>
+
+<div class="edition-strip">
+  <span>Est. 2026</span>
+  <span>Finance · AI · Motorsport · Food · Travel · Art</span>
+  <span>Hampshire, England</span>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Finance & AI Professional · FCA</span>
+    <span>AI Growth Alliance — Hampshire</span>
+    <span>Vol. I</span>
+  </div>
+  <div class="masthead-main">
+    <a href="index.html" class="site-title">
+      <span class="site-title-first">JIMI</span>
+      <span class="site-title-last">REED</span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="#" class="nav-blue">AI & Finance</a>
+      <a href="#" class="nav-red">Motorsport</a>
+      <a href="#" class="nav-amber">Food</a>
+      <a href="#" class="nav-green">Travel</a>
+      <a href="#" class="nav-violet">Art</a>
+      <a href="about.html" class="active">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <h1>About</h1>
+  <span class="page-header-sub">The person behind the site</span>
+</div>
+
+<main class="page-body">
+
+  <!-- PROFILE -->
+  <section class="profile-section">
+
+    <div class="profile-photo-col">
+      <div class="photo-frame">
+        <div class="photo-placeholder-icon">⬜</div>
+        <span style="position:relative;font-size:0.6rem;letter-spacing:0.15em;color:var(--text-dim);">Professional photo</span>
+        <span class="photo-label">Jimi Reed FCA</span>
+      </div>
+
+      <div class="credentials">
+        <div class="credential-item">
+          <span class="credential-tag">Role</span>
+          <span>Finance Director &amp; Business Finance Partner</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-tag">Employer</span>
+          <span>Aura Technology</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-tag">Qualification</span>
+          <span>FCA — Fellow Chartered Accountant</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-tag">Based</span>
+          <span>Basingstoke, Hampshire</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-tag">Community</span>
+          <span>AI Growth Alliance — Hampshire &amp; Solent</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-tag">Interests</span>
+          <span>Motorsport · Food · Travel · Art</span>
+        </div>
+      </div>
+
+      <a href="/cdn-cgi/l/email-protection#62080b0f0b22080b0f0b100707064c010d0f5d111700080701165f21344230071317071116" class="cv-btn">
+        <span>Request my CV</span>
+      </a>
+    </div>
+
+    <div class="profile-text-col">
+      <p class="section-tag" style="color: var(--blue);">Professional</p>
+      <h2 class="profile-headline">
+        Finance Director.<br>
+        AI Strategist.<br>
+        <em>The numbers of the past.<br>The technology of the future.</em>
+      </h2>
+      <div class="profile-body">
+        <p>
+          I'm <strong>Jimi Reed FCA</strong> — a Finance Director and Business Finance Partner at <strong>Aura Technology</strong>, based in Basingstoke. My work sits at the intersection of sharp financial thinking and the kind of commercial instinct that actually moves businesses forward. I focus on <strong>creating and protecting shareholder wealth</strong>: building the financial foundations that let companies grow with confidence, and the strategic clarity to know when to push and when to hold.
+        </p>
+        <p>
+          Being <strong>FCA qualified</strong> means I bring more than spreadsheets to the table. It means rigour, accountability, and a professional standard that doesn't waver when things get complicated. Finance is often where the real story of a business lives — and I've spent my career learning how to read it, and more importantly, how to act on it.
+        </p>
+        <p>
+          More recently, my work has expanded into the <strong>AI space</strong> — not as a passenger watching technology happen, but as someone actively engaged in how it reshapes businesses, decisions, and entire industries. The question that interests me most isn't what AI can do in theory — it's what it should do in practice.
+        </p>
+      </div>
+
+      <div class="aga-callout">
+        <p class="aga-callout-label">AI Growth Alliance</p>
+        <p class="aga-callout-title">Promoting responsible AI adoption across Hampshire & the Solent</p>
+        <p class="aga-callout-body">
+          I'm a member of the AI Growth Alliance — a Hampshire-based working group focused on the progressive and ethical adoption of AI across the region. The Alliance brings together businesses, leaders, and practitioners to share knowledge, challenge assumptions, and ensure the AI transition in Hampshire is both ambitious and responsible.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PERSONAL INTERESTS -->
+  <div class="interests-header">
+    <h2>BEYOND THE OFFICE</h2>
+  </div>
+
+  <div class="interests-grid">
+
+    <div class="interest-card ic-motorsport">
+      <p class="interest-label">Motorsport</p>
+      <h3 class="interest-title">A lifelong love of racing, circuits, and going fast</h3>
+      <p class="interest-body">
+        Motorsport has been part of my life since watching races as a child with my father. That early passion never left. I've been to Silverstone multiple times, experienced the madness of Le Mans, the elegance of Goodwood, and the raw noise of Thruxton and banger circuits. I also own my own kit car — because apparently watching isn't quite enough.
+      </p>
+      <a href="#" class="interest-link">Read the F1 blog →</a>
+    </div>
+
+    <div class="interest-card ic-food">
+      <p class="interest-label">Food</p>
+      <h3 class="interest-title">Cooking seriously, eating enthusiastically</h3>
+      <p class="interest-body">
+        I'm a self-confessed foodie — as my waistline will confirm. But the love of eating is matched by a genuine love of cooking. I recently added a Thermomix to the kitchen, which has taken things up a level. Whether it's a carefully constructed recipe or something improvised from the fridge, food is one of the great pleasures. Restaurants, markets, home cooking — all of it counts.
+      </p>
+      <a href="#" class="interest-link">See the recipes →</a>
+    </div>
+
+    <div class="interest-card ic-travel">
+      <p class="interest-label">Travel</p>
+      <h3 class="interest-title">New cultures, new food, new perspectives</h3>
+      <p class="interest-body">
+        Travel is about more than places — it's about the food you eat, the people you meet, and the way a different context shifts how you see things. I'm equally happy on a proper fly-and-flop holiday as I am on a multi-centre touring trip working through a list of places and restaurants. The common thread is always curiosity.
+      </p>
+      <a href="#" class="interest-link">Explore the trips →</a>
+    </div>
+
+    <div class="interest-card ic-painting">
+      <p class="interest-label">Art</p>
+      <h3 class="interest-title">Watercolours, acrylics, and the joy of making something</h3>
+      <p class="interest-body">
+        I paint. Watercolours and acrylics mostly. I won't pretend I'm particularly good at it — but that's not really the point. There's something valuable about a pursuit that exists purely for the making of it, with no commercial logic or professional outcome attached. It keeps the other parts of the brain alive.
+      </p>
+      <a href="#" class="interest-link">See the work →</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Jimi Reed</span>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#80eae9ede

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pit Stop Pages — Jimi Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090c;
+    --bg-2: #111116;
+    --bg-3: #16161d;
+    --text: #f0f0f5;
+    --text-dim: #58586a;
+    --text-mid: #9090aa;
+    --blue: #00c8f0;
+    --red: #f02840;
+    --red-dim: rgba(240,40,64,0.12);
+    --amber: #f0a800;
+    --green: #00e87a;
+    --violet: #a855f7;
+    --rule: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html, body {
+    background: #09090c !important;
+    background-color: #09090c !important;
+  }
+
+  body {
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-weight: 300;
+    overflow-x: hidden;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Force dark everywhere */
+  header, main, footer, section, nav, div, article {
+    background-color: transparent;
+  }
+
+  /* EDITION STRIP */
+  .edition-strip {
+    background: var(--text) !important;
+    color: var(--bg);
+    padding: 0.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* MASTHEAD */
+  .masthead { border-bottom: 3px solid var(--text); background: #09090c !important; }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    background: #09090c !important;
+  }
+
+  .masthead-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0 0;
+    text-align: center;
+    background: #09090c !important;
+  }
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    display: flex;
+    gap: 0.15em;
+    text-decoration: none;
+  }
+
+  .site-title-first { color: var(--text); }
+  .site-title-last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--blue);
+    text-shadow: 0 0 40px rgba(0,200,240,0.2);
+  }
+
+  .masthead-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    background: #09090c !important;
+    flex-wrap: wrap;
+  }
+
+  .masthead-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-right: 1px solid var(--rule);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+  .masthead-nav a.active { color: var(--red); border-bottom: 2px solid var(--red); }
+  .masthead-nav a.nav-blue:hover  { color: var(--blue); }
+  .masthead-nav a.nav-red:hover, .masthead-nav a.nav-red   { color: var(--red); }
+  .masthead-nav a.nav-amber:hover { color: var(--amber); }
+  .masthead-nav a.nav-green:hover { color: var(--green); }
+  .masthead-nav a.nav-violet:hover { color: var(--violet); }
+  .masthead-nav a:hover { background: rgba(255,255,255,0.03); }
+
+  /* SECTION MASTHEAD */
+  .section-masthead {
+    background: #09090c !important;
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 2rem 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.35em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .section-title span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--red);
+    text-shadow: 0 0 30px rgba(240,40,64,0.3);
+  }
+
+  .section-desc {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin-top: 1rem;
+  }
+
+  /* CATEGORY FILTER */
+  .category-bar {
+    background: #09090c !important;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .category-bar::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.9rem 1.25rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .cat-btn:hover { color: var(--text-mid); }
+  .cat-btn.active { color: var(--red); border-bottom-color: var(--red); }
+
+  /* MAIN CONTENT */
+  .page-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    background: #09090c !important;
+  }
+
+  /* FEATURED POST */
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 0;
+    gap: 4rem;
+    background: #09090c !important;
+  }
+
+  .featured-image {
+    background: var(--bg-2) !important;
+    aspect-ratio: 16/10;
+    border-top: 3px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 8px,
+      rgba(240,40,64,0.03) 8px, rgba(240,40,64,0.03) 9px
+    );
+  }
+
+  .featured-image-label {
+    position: relative;
+    text-align: center;
+  }
+
+  .featured-image-label p { margin-top: 0.5rem; font-size: 0.55rem; }
+
+  .featured-tag {
+    display: inline-block;
+    font-size: 0.52rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--red);
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .featured-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .featured-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .featured-headline em { font-style: italic; color: var(--text-mid); }
+
+  .featured-meta {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .featured-excerpt {
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .read-more:hover { opacity: 0.7; }
+
+  /* POSTS LIST */
+  .posts-header {
+    padding: 2rem 0 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #09090c !important;
+  }
+
+  .posts-header h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+  }
+
+  .posts-count {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .post-item {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    background: #09090c !important;
+    position: relative;
+  }
+
+  .post-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem; right: -2rem; top: 0; bottom: 0;
+    background: transparent;
+    transition: background 0.2s;
+    z-index: 0;
+  }
+
+  .post-item:hover::before { background: rgba(240,40,64,0.03); }
+
+  .post-thumb {
+    background: var(--bg-2) !important;
+    aspect-ratio: 4/3;
+    border-left: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .post-content { position: relative; z-index: 1; }
+
+  .post-category {
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    transition: color 0.2s;
+  }
+
+  .post-item:hover .post-title { color: var(--red); }
+
+  .post-excerpt {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .post-meta {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+
+  .post-meta span { display: block; margin-bottom: 0.25rem; }
+
+  /* SIDEBAR NOTE */
+  .coming-soon {
+    background: var(--bg-2) !important;
+    border-left: 3px solid var(--red);
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .coming-soon strong { color: var(--text); font-weight: 400; }
+  .coming-soon-label {
+    font-size: 0.52rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #09090c !important;
+  }
+
+  footer span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .featured-post { grid-template-columns: 1fr; gap: 2rem; }
+    .post-item { grid-template-columns: 100px 1fr; }
+    .post-meta { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .post-item { grid-template-columns: 1fr; }
+    .post-thumb { display: none; }
+    .edition-strip { display: none; }
+  }
+
+  body { animation: pageFade 0.5s ease; }
+  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+</style>
+</head>
+<body>
+
+<div class="edition-strip">
+  <span>Est. 2026</span>
+  <span>Finance · AI · Motorsport · Food · Travel · Art</span>
+  <span>Hampshire, England</span>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Finance & AI Professional · FCA</span>
+    <span>AI Growth Alliance — Hampshire</span>
+    <span>Vol. I</span>
+  </div>
+  <div class="masthead-main">
+    <a href="index.html" class="site-title">
+      <span class="site-title-first">JIMI</span>
+      <span class="site-title-last">REED</span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="#" class="nav-blue">AI & Finance</a>
+      <a href="#" class="nav-red active">Motorsport</a>
+      <a href="#" class="nav-amber">Food</a>
+      <a href="#" class="nav-green">Travel</a>
+      <a href="#" class="nav-violet">Art</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SECTION MASTHEAD -->
+<div class="section-masthead">
+  <p class="section-eyebrow">Motorsport</p>
+  <h1 class="section-title">The Pit Stop <span>Pages</span></h1>
+  <p class="section-desc">
+    F1 race reviews, paddock news, supporting series, endurance racing, and the occasional dispatch from a muddy banger circuit. Written by someone who grew up watching this sport and never quite got over it.
+  </p>
+</div>
+
+<!-- CATEGORY FILTER -->
+<div class="category-bar">
+  <button class="cat-btn active">All</button>
+  <button class="cat-btn">F1 Reviews</button>
+  <button class="cat-btn">F1 News</button>
+  <button class="cat-btn">Series &amp; Endurance</button>
+  <button class="cat-btn">Kit Car & Clubs</button>
+</div>
+
+<main class="page-body">
+
+  <!-- FEATURED POST -->
+  <div class="featured-post">
+    <div class="featured-image">
+      <div class="featured-image-label">
+        <p>Featured post image</p>
+      </div>
+    </div>
+    <div>
+      <span class="featured-tag">Latest</span>
+      <p class="featured-label">F1 Race Review</p>
+      <h2 class="featured-headline">
+        Season Opener: First Impressions, <em>Fast Conclusions</em>
+      </h2>
+      <div class="featured-meta">
+        <span>Jimi Reed</span>
+        <span>·</span>
+        <span>March 2026</span>
+        <span>·</span>
+        <span>F1 Reviews</span>
+      </div>
+      <p class="featured-excerpt">
+        A placeholder for your first race review — this featured slot will always show your most recent post. The layout gives it room to breathe: a large image, full headline, and enough excerpt to pull the reader in before they click through to the full piece.
+      </p>
+      <a href="#" class="read-more">Read the full review →</a>
+    </div>
+  </div>
+
+  <!-- POSTS LIST -->
+  <div class="posts-header">
+    <h2>ALL POSTS</h2>
+    <span class="posts-count">Showing 3 posts</span>
+  </div>
+
+  <a href="#" class="post-item">
+    <div class="post-thumb">Image</div>
+    <div class="post-content">
+      <p class="post-category">F1 News</p>
+      <h3 class="post-title">The Silly Season Starts Early: What the Driver Market Tells Us About 2027</h3>
+      <p class="post-excerpt">Placeholder post — driver rumours, team politics, and what the early movement means for next year's grid.</p>
+    </div>
+    <div class="post-meta">
+      <span>Feb 2026</span>
+      <span>F1 News</span>
+    </div>
+  </a>
+
+  <a href="#" class="post-item">
+    <div class="post-thumb">Image</div>
+    <div class="post-content">
+      <p class="post-category">Kit Car & Clubs</p>
+      <h3 class="post-title">A Weekend at Thruxton: Noise, Speed, and Why Club Racing Matters</h3>
+      <p class="post-excerpt">Placeholder post — a write-up from a club racing weekend. The atmosphere, the machines, and why this end of the sport is worth paying attention to.</p>
+    </div>
+    <div class="post-meta">
+      <span>Jan 2026</span>
+      <span>Kit Car & Clubs</span>
+    </div>
+  </a>
+
+  <a href="#" class="post-item">
+    <div class="post-thumb">Image</div>
+    <div class="post-content">
+      <p class="post-category">Series &amp; Endurance</p>
+      <h3 class="post-title">Le Mans: Why 24 Hours Changes How You Watch Motorsport Forever</h3>
+      <p class="post-excerpt">Placeholder post — a personal piece on attending Le Mans and what the experience does to your understanding of the sport.</p>
+    </div>
+    <div class="post-meta">
+      <span>Dec 2025</span>
+      <span>Series &amp; Endurance</span>
+    </div>
+  </a>
+
+  <div class="coming-soon">
+    <p class="coming-soon-label">More coming</p>
+    <p><strong>The Pit Stop Pages is just getting started.</strong> Race reviews, paddock analysis, and dispatches from circuits large and small will be added here throughout the season. If you want to be notified when new posts go up, get in touch via the contact page.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Jimi Reed</span>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#107a797d79507a797d79627575743e737f7d2f6365727a7573642d53463042756165756364">Request CV</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Category filter
+  document.querySelectorAll('.cat-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      docu

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Professional Side — Jimi Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090c;
+    --bg-2: #111116;
+    --bg-3: #16161d;
+    --text: #f0f0f5;
+    --text-dim: #58586a;
+    --text-mid: #9090aa;
+    --blue: #00c8f0;
+    --blue-dim: rgba(0,200,240,0.08);
+    --red: #f02840;
+    --amber: #f0a800;
+    --green: #00e87a;
+    --violet: #a855f7;
+    --rule: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html, body {
+    background: #09090c !important;
+    background-color: #09090c !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body {
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* EDITION STRIP */
+  .edition-strip {
+    background: var(--text) !important;
+    color: var(--bg);
+    padding: 0.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* MASTHEAD */
+  .masthead { border-bottom: 3px solid var(--text); background: #09090c !important; }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    background: #09090c !important;
+  }
+
+  .masthead-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0 0;
+    text-align: center;
+    background: #09090c !important;
+  }
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    display: flex;
+    gap: 0.15em;
+    text-decoration: none;
+  }
+
+  .site-title-first { color: var(--text); }
+  .site-title-last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--blue);
+    text-shadow: 0 0 40px rgba(0,200,240,0.2);
+  }
+
+  .masthead-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    background: #09090c !important;
+    flex-wrap: wrap;
+  }
+
+  .masthead-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-right: 1px solid var(--rule);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+  .masthead-nav a.active { color: var(--blue); border-bottom: 2px solid var(--blue); }
+  .masthead-nav a.nav-blue:hover   { color: var(--blue); }
+  .masthead-nav a.nav-red:hover    { color: var(--red); }
+  .masthead-nav a.nav-amber:hover  { color: var(--amber); }
+  .masthead-nav a.nav-green:hover  { color: var(--green); }
+  .masthead-nav a.nav-violet:hover { color: var(--violet); }
+  .masthead-nav a:hover { background: rgba(255,255,255,0.03); }
+
+  /* PAGE HEADER */
+  .page-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #09090c !important;
+  }
+
+  .page-eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.35em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--blue);
+    box-shadow: 0 0 8px var(--blue);
+    display: inline-block;
+  }
+
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    color: var(--text);
+  }
+
+  .page-header h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--blue);
+    text-shadow: 0 0 30px rgba(0,200,240,0.2);
+  }
+
+  .page-header-desc {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin-top: 1rem;
+  }
+
+  /* TABS */
+  .tab-bar {
+    background: #09090c !important;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .tab-btn {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 1rem 2rem 1rem 0;
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn:hover { color: var(--text-mid); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  /* SECTION NAV */
+  .tab-btn { text-decoration: none; display: inline-block; }
+  .tab-content-section { display: block; }
+
+  .page-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    background: #09090c !important;
+  }
+
+  /* ===================== */
+  /* FINANCE TAB           */
+  /* ===================== */
+
+  .finance-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Skills sidebar */
+  .skills-col { border-right: 1px solid var(--rule); padding-right: 3rem; }
+
+  .sidebar-block { margin-bottom: 2.5rem; }
+
+  .sidebar-label {
+    font-size: 0.52rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .skill-item {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .skill-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sector-pill {
+    display: inline-block;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    color: var(--text-mid);
+    padding: 0.3rem 0.7rem;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+  }
+
+  .cv-btn {
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cv-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 0;
+  }
+
+  .cv-btn:hover { color: var(--bg); }
+  .cv-btn:hover::before { transform: translateX(0); }
+  .cv-btn span { position: relative; z-index: 1; }
+
+  /* Career timeline */
+  .timeline-col { }
+
+  .current-role {
+    background: var(--bg-2) !important;
+    border-left: 3px solid var(--blue);
+    padding: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .current-tag {
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--blue);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .role-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .role-company {
+    font-size: 0.78rem;
+    color: var(--blue);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .role-dates {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .role-desc {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+  }
+
+  .role-desc strong { color: var(--text); font-weight: 400; }
+
+  .role-achievements {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .achievement {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    padding-left: 1rem;
+    border-left: 2px solid var(--blue-dim);
+    line-height: 1.6;
+  }
+
+  /* Timeline items */
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.57rem;
+    top: 0.4rem;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--blue);
+    background: var(--bg);
+    border-radius: 50%;
+  }
+
+  .timeline-role {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-company {
+    font-size: 0.75rem;
+    color: var(--blue);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-dates {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.78rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+  }
+
+  .timeline-more {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 1rem 0 0;
+    font-style: italic;
+  }
+
+  /* ===================== */
+  /* AI TAB                */
+  /* ===================== */
+
+  /* AIGA Feature */
+  .aga-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--rule);
+    background: #09090c !important;
+  }
+
+  .aga-text { }
+
+  .ai-section-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ai-section-tag::before {
+    content: '';
+    width: 16px;
+    height: 2px;
+    background: var(--blue);
+    display: inline-block;
+  }
+
+  .aga-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .aga-body {
+    font-size: 0.84rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+  }
+
+  .aga-body strong { color: var(--text); font-weight: 400; }
+  .aga-body p + p { margin-top: 1rem; }
+
+  .aga-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 2rem;
+  }
+
+  .aga-stat {
+    background: var(--bg-2) !important;
+    padding: 1.25rem;
+  }
+
+  .aga-stat-val {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .aga-stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .aga-visual {
+    background: var(--bg-2) !important;
+    border-top: 3px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .aga-logo-text {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    text-shadow: 0 0 30px rgba(0,200,240,0.3);
+    margin-bottom: 0.5rem;
+  }
+
+  .aga-logo-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .aga-link {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--blue);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .aga-link:hover { opacity: 0.7; }
+
+  /* AI Content */
+  .ai-content-header {
+    padding: 2rem 0 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #09090c !important;
+  }
+
+  .ai-content-header h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+  }
+
+  /* Content type filter */
+  .content-filter {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover { color: var(--text-mid); border-color: var(--text-dim); }
+  .filter-btn.active { color: var(--blue); border-color: var(--blue); }
+
+  /* AI post items */
+  .ai-post-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    background: #09090c !important;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .ai-post-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem; right: -2rem; top: 0; bottom: 0;
+    background: transparent;
+    transition: background 0.2s;
+    z-index: 0;
+  }
+
+  .ai-post-item:hover::before { background: var(--blue-dim); }
+
+  .post-type-badge {
+    position: relative;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    flex-shrink: 0;
+    transition: border-color 0.2s;
+  }
+
+  .ai-post-item:hover .post-type-badge { border-color: var(--blue); }
+
+  .badge-video  { color: var(--red); }
+  .badge-tips   { color: var(--green); }
+  .badge-aga    { color: var(--blue); }
+  .badge-article { color: var(--amber); }
+
+  .ai-post-content { position: relative; z-index: 1; }
+
+  .ai-post-category {
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.4rem;
+  }
+
+  .badge-video  ~ .ai-post-content .ai-post-category { color: var(--red); }
+
+  .ai-post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .ai-post-item:hover .ai-post-title { color: var(--blue); }
+
+  .ai-post-excerpt {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .ai-post-meta {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-post-meta span { display: block; margin-bottom: 0.25rem; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #09090c !important;
+  }
+
+  footer span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .finance-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .skills-col { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
+    .aga-feature { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .ai-post-item { grid-template-columns: 1fr; }
+    .post-type-badge { display: none; }
+    .ai-post-meta { display: none; }
+    .aga-stats { grid-template-columns: 1fr 1fr; }
+    .edition-strip { display: none; }
+  }
+
+  body { animation: pageFade 0.5s ease; }
+  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+</style>
+</head>
+<body>
+
+<div class="edition-strip">
+  <span>Est. 2026</span>
+  <span>Finance · AI · Motorsport · Food · Travel · Art</span>
+  <span>Hampshire, England</span>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Finance & AI Professional · FCA</span>
+    <span>AI Growth Alliance — Hampshire</span>
+    <span>Vol. I</span>
+  </div>
+  <div class="masthead-main">
+    <a href="index.html" class="site-title">
+      <span class="site-title-first">JIMI</span>
+      <span class="site-title-last">REED</span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="#" class="nav-blue active">AI & Finance</a>
+      <a href="#" class="nav-red">Motorsport</a>
+      <a href="#" class="nav-amber">Food</a>
+      <a href="#" class="nav-green">Travel</a>
+      <a href="#" class="nav-violet">Art</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">AI & Finance</p>
+  <h1>The Professional <span>Side</span></h1>
+  <p class="page-header-desc">
+    A Finance Director and FCA with a serious interest in AI — how it works, where it's heading, and what it actually means for the businesses and people using it.
+  </p>
+</div>
+
+<!-- SECTION NAV -->
+<div class="tab-bar">
+  <a class="tab-btn active" href="#finance">Finance</a>
+  <a class="tab-btn" href="#ai">Artificial Intelligence</a>
+</div>
+
+<main class="page-body">
+
+  <!-- ===================== -->
+  <!-- FINANCE TAB           -->
+  <!-- ===================== -->
+  <div class="tab-content-section" id="finance">
+    <div class="finance-layout">
+
+      <!-- SKILLS SIDEBAR -->
+      <div class="skills-col">
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Key Skills</span>
+          <div class="skill-item">Commercial &amp; strategic finance leadership</div>
+          <div class="skill-item">Shareholder value creation &amp; exit planning</div>
+          <div class="skill-item">Acquisition due diligence &amp; integration</div>
+          <div class="skill-item">Employee Ownership Trust structuring</div>
+          <div class="skill-item">Tax planning &amp; optimisation</div>
+          <div class="skill-item">Cash flow &amp; treasury management</div>
+          <div class="skill-item">Board-level decision support</div>
+          <div class="skill-item">Financial modelling &amp; forecasting</div>
+          <div class="skill-item">Regulated environment finance</div>
+          <div class="skill-item">AI-enabled process transformation</div>
+          <div class="skill-item">Advanced Excel, VBA &amp; SQL</div>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Qualification</span>
+          <div class="skill-item">FCA — Fellow Chartered Accountant</div>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Sectors</span>
+          <div>
+            <span class="sector-pill">Technology</span>
+            <span class="sector-pill">Financial Services</span>
+            <span class="sector-pill">Claims Management</span>
+            <span class="sector-pill">Mortgage &amp; Insurance</span>
+            <span class="sector-pill">Recruitment</span>
+            <span class="sector-pill">Hotel &amp; Leisure</span>
+            <span class="sector-pill">Legal / Solicitors</span>
+            <span class="sector-pill">SME &amp; Scale-up</span>
+            <span class="sector-pill">AI &amp; Emerging Tech</span>
+          </div>
+        </div>
+
+        <a href="/cdn-cgi/l/email-protection#9cf6f5f1f5dcf6f5f1f5eef9f9f8b2fff3f1a3efe9fef6f9ffe8a1dfcabccef9ede9f9efe8" class="cv-btn">
+          <span>Request my CV</span>
+        </a>
+
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline-col">
+
+        <!-- CURRENT ROLE -->
+        <div class="current-role">
+          <span class="current-tag">Current</span>
+          <p class="role-title">Finance Director</p>
+          <p class="role-company">Aura Technology Group (100 staff, £11m turnover) · Basingstoke, Hampshire</p>
+          <p class="role-dates">2021 — Present</p>
+          <p class="role-desc">
+            Appointed following a £1.5m acquisition to integrate finance systems, controls and processes across the enlarged group. Principal financial adviser to the board, providing <strong>commercial insight, risk analysis and scenario-based forecasting</strong> to support strategic decision-making within a multiply ISO-certified environment. Full ownership of statutory, management accounting, tax, treasury and company secretarial matters, including oversight of an overseas subsidiary in India.
+          </p>
+          <div class="role-achievements">
+            <div class="achievement">Transitioned the main trading company from £326k operating losses to £220k profit in under five years.</div>
+            <div class="achievement">Successfully managed a £1.6m shareholder warranty claim.</div>
+            <div class="achievement">Led financial due diligence and execution of a further £600k corporate acquisition.</div>
+            <div class="achievement">Built and developed a post-acquisition finance team of 6 from the ground up — no undesired headcount losses, no recruitment costs.</div>
+            <div class="achievement">Leveraged AI-driven scenario analysis to reduce reporting lead times and deliver forecasting models for banking, HMRC, and public sector tenders.</div>
+          </div>
+        </div>
+
+        <!-- CAREER TIMELINE -->
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <p class="timeline-role">Group Finance Director</p>
+            <p class="timeline-company">The Protection Specialist Ltd Group · Multi-site</p>
+            <p class="timeline-dates">2010 — 2020</p>
+            <p class="timeline-desc">Long-tenured Group FD across a period of exceptional growth — scaling the business from c.£60k monthly revenue to over £3m, and from 30 to 350 staff across two sites. Concurrently managed finance, compliance, and reporting across a Claims Management Company, Mortgage &amp; Insurance Broker, Recruitment Company, Debt Collection Company, and IT Company.</p>
+            <div class="role-achievements" style="margin-top:0.75rem;">
+              <div class="achievement">Led shareholder exit via Employee Ownership Trust, delivering c.£12m in tax savings for owners.</div>
+              <div class="achievement">Designed and executed long-term tax planning strategies generating c.£2.5m of savings for senior management.</div>
+              <div class="achievement">Built and led an 18-person finance and credit control function, sustaining a 98% collection rate.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-role">External Audit & Assurance</p>
+            <p class="timeline-company">HWB Chartered Accountants · Southampton</p>
+            <p class="timeline-dates">2006 — 2010</p>
+            <p class="timeline-desc">External audit and assurance across a range of SME clients, with particular specialism in Hotel &amp; Leisure and Solicitors. Qualified as FCA (ICAEW) during this period. This grounding underpins strong technical judgement around statutory accounts, audit readiness, and engagement with external auditors.</p>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-role">BSc Management Science with Accounting</p>
+            <p class="timeline-company">University of Southampton</p>
+            <p class="timeline-dates">Graduated 2006</p>
+            <p class="timeline-desc">Foundation in both management disciplines and accounting practice.</p>
+          </div>
+
+          <p class="timeline-more">Full career history and references available on request — use the CV button above.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- AI TAB                -->
+  <!-- ===================== -->
+  <div style="border-top:3px solid var(--blue);margin-top:0;background:#09090c !important;">
+  <div class="tab-bar" style="margin-bottom:0;">
+    <a class="tab-btn" href="#finance">Finance</a>
+    <a class="tab-btn active" href="#ai">Artificial Intelligence</a>
+  </div>
+</div>
+<div class="tab-content-section" id="ai">
+
+    <!-- AIGA FEATURE -->
+    <div class="aga-feature">
+      <div class="aga-text">
+        <p class="ai-section-tag">AI Growth Alliance</p>
+        <h2 class="aga-headline">Aligning regional talent to ensure Hampshire & the Solent leads on AI adoption</h2>
+        <div class="aga-body">
+          <p>
+            The <strong>AI Growth Alliance (AIGA)</strong> is a regional partnership bringing together business, education, government and civic leaders across Hampshire, the Solent and the wider South Central region. Its role is to align effort, reduce fragmentation, and make it easier for organisations to adopt AI <strong>confidently and responsibly</strong>.
+          </p>
+          <p>
+            Working towards a formal launch at the <strong>Farnborough International Airshow in July 2026</strong>, the Alliance has formed four working groups: AI Skills &amp; Leadership, AI Infrastructure &amp; Investment, AI Ethics &amp; Inclusion, and AI Ecosystem Coordination.
+          </p>
+          <p>
+            As a member, I contribute to the Alliance's mission of ensuring the South does not simply observe the AI revolution — but helps shape it.
+          </p>
+        </div>
+
+        <!-- Chairman quote -->
+        <div style="margin-top:1.75rem;padding:1.25rem 1.5rem;border-left:3px solid var(--blue);background:var(--bg-3);">
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:0.95rem;line-height:1.7;color:var(--text-mid);margin-bottom:0.75rem;">"AI-driven growth cannot be delivered by data centres alone. It will come from our people understanding how to deploy AI responsibly, from our SMEs being confident enough to adopt it, and from our institutions being able to apply it in real-world industrial sectors across our region."</p>
+          <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);">David Patterson — Chair, AI Growth Alliance</p>
+        </div>
+
+        <!-- Newsletter links -->
+        <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:1px;">
+          <a href="https://newsletter.aigrowthalliance.co.uk/p/chair-s-brief-issue-01-fa091f7ffe447604" target="_blank" rel="noopener" style="background:var(--bg-2);padding:1rem 1.25rem;text-decoration:none;color:inherit;border-left:2px solid transparent;transition:border-color 0.2s;display:flex;justify-content:space-between;align-items:center;" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='transparent'">
+            <div>
+              <p style="font-size:0.52rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:0.25rem;">Chair's Brief — Issue 01</p>
+              <p style="font-family:var(--font-serif);font-size:0.9rem;color:var(--text);">Introducing the AI Growth Alliance</p>
+            </div>
+            <span style="font-size:0.6rem;color:var(--text-dim);letter-spacing:0.1em;">Mar 4, 2026 →</span>
+          </a>
+          <a href="https://newsletter.aigrowthalliance.co.uk/p/chair-s-brief-issue-02" target="_blank" rel="noopener" style="background:var(--bg-2);padding:1rem 1.25rem;text-decoration:none;color:inherit;border-left:2px solid transparent;transition:border-color 0.2s;display:flex;justify-content:space-between;align-items:center;" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='transparent'">
+            <div>
+              <p style="font-size:0.52rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:0.25rem;">Chair's Brief — Issue 02</p>
+              <p style="font-family:var(--font-serif);font-size:0.9rem;color:var(--text);">Spotlight: AI Skills and Leadership Working Group</p>
+            </div>
+            <span style="font-size:0.6rem;color:var(--text-dim);letter-spacing:0.1em;">Mar 10, 2026 →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="aga-visual">
+        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,onerror=redirect/uploads/publication/logo/39845e93-0037-48e8-85eb-f21c24c634aa/AIGA_logo_-_Copy.png" alt="AI Growth Alliance Logo" style="max-width:180px;margin-bottom:1.5rem;filter:brightness(1.1);">
+        <div class="aga-logo-sub">Hampshire &amp; South Central Region</div>
+        <a href="https://hub.futuretowns.soton.ac.uk/aiga" target="_blank" rel="noopener" class="aga-link" style="margin-bottom:1rem;">Join the AIGA →</a>
+        <a href="https://newsletter.aigrowthalliance.co.uk/archive" target="_blank" rel="noopener" class="aga-link">Read all newsletters →</a>
+      </div>
+    </div>
+
+    <!-- AI CONTENT -->
+    <div class="ai-content-header">
+      <h2>ARTICLES, VIDEOS & TIPS</h2>
+      <div class="content-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="article">Articles</button>
+        <button class="filter-btn" data-filter="video">Videos</button>
+        <button class="filter-btn" data-filter="tips">Tips & Tricks</button>
+        <button class="filter-btn" data-filter="aga">AIGA</button>
+      </div>
+    </div>
+
+    <a href="#" class="ai-post-item" data-type="article">
+      <div class="post-type-badge badge-article">ART</div>
+      <div class="ai-post-content">
+        <p class="ai-post-category">Article</p>
+        <h3 class="ai-post-title">What AI Actually Does to a Finance Function: An Honest Assessment</h3>
+        <p class="ai-post-excerpt">Placeholder — a practitioner's view of how AI tools are changing the day-to-day of finance. What works, what's overhyped, and where the genuine gains are.</p>
+      </div>
+      <div class="ai-post-meta">
+        <span>Mar 2026</span>
+        <span>Article</span>
+      </div>
+    </a>
+
+    <a href="#" class="ai-post-item" data-type="video">
+      <div class="post-type-badge badge-video">VID</div>
+      <div class="ai-post-content">
+        <p class="ai-post-category" style="color:var(--red);">Video</p>
+        <h3 class="ai-post-title">Getting Started with Claude: A Practical Guide for Non-Technical Professionals</h3>
+        <p class="ai-post-excerpt">Placeholder — a practical walkthrough of using Claude effectively in a professional context. No coding required. Built for people who want results, not theory.</p>
+      </div>
+      <div class="ai-post-meta">
+        <span>Feb 2026</span>
+        <span>Video</span>
+      </div>
+    </a>
+
+    <a href="#" class="ai-post-item" data-type="tips">
+      <div class="post-type-badge badge-tips">TIPS</div>
+      <div class="ai-post-content">
+        <p class="ai-post-category" style="color:var(--green);">Tips & Tricks</p>
+        <h3 class="ai-post-title">10 Prompts That Actually Save Time: A Running List for Finance Professionals</h3>
+        <p class="ai-post-excerpt">Placeholder — a practical, no-nonsense collection of prompts that deliver genuine time savings in a finance context. Updated as new ones prove their worth.</p>
+      </div>
+      <div class="ai-post-meta">
+        <span>Feb 2026</span>
+        <span>Tips</span>
+      </div>
+    </a>
+
+    <a href="#" class="ai-post-item" data-type="aga">
+      <div class="post-type-badge badge-aga">AIGA</div>
+      <div class="ai-post-content">
+        <p class="ai-post-category">AIGA</p>
+        <h3 class="ai-post-title">AI Growth Alliance: What We Discussed at the Last Session</h3>
+        <p class="ai-post-excerpt">Placeholder — a write-up from an AIGA working session. The themes, the debates, and the takeaways that are worth sharing more widely.</p>
+      </div>
+      <div class="ai-post-meta">
+        <span>Jan 2026</span>
+        <span>AIGA</span>
+      </div>
+    </a>
+
+    <a href="#" class="ai-post-item" data-type="article">
+      <div class="post-type-badge badge-article">ART</div>
+      <div class="ai-post-content">
+        <p class="ai-post-category">Article</p>
+        <h3 class="ai-post-title">Comparing the Models: Claude, ChatGPT, and Gemini for Professional Use</h3>
+        <p class="ai-post-excerpt">Placeholder — a practical comparison of the major AI models from the perspective of a professional user. Not a technical review — a usability one.</p>
+      </div>
+      <div class="ai-post-meta">
+        <span>Jan 2026</span>
+        <span>Article</span>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Jimi Reed</span>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#016b686c68416b686c68736464652f626e6c3e7274636b6462753c42572153647074647275">Request CV</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(tab).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function filterContent(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.ai-post-
