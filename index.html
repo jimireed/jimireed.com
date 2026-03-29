@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,447 +11,448 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg: #09090c;
-    --bg-2: #111116;
-    --bg-3: #16161d;
-    --text: #f0f0f5;
-    --text-dim: #58586a;
-    --text-mid: #9090aa;
-    --blue: #00c8f0;
-    --red: #f02840;
-    --amber: #f0a800;
-    --green: #00e87a;
-    --violet: #a855f7;
-    --rule: rgba(255,255,255,0.07);
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-serif: 'Playfair Display', serif;
-    --font-mono: 'DM Mono', monospace;
-  }
+:root {
+–bg: #09090c;
+–bg-2: #111116;
+–bg-3: #16161d;
+–text: #f0f0f5;
+–text-dim: #58586a;
+–text-mid: #9090aa;
+–blue: #00c8f0;
+–red: #f02840;
+–amber: #f0a800;
+–green: #00e87a;
+–violet: #a855f7;
+–rule: rgba(255,255,255,0.07);
+–font-display: ‘Bebas Neue’, sans-serif;
+–font-serif: ‘Playfair Display’, serif;
+–font-mono: ‘DM Mono’, monospace;
+}
 
-  html {
-    scroll-behavior: smooth;
-    background: #09090c !important;
-  }
+html {
+scroll-behavior: smooth;
+background: #09090c !important;
+}
 
-  html, body {
-    background: #09090c !important;
-    background-color: #09090c !important;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+html, body {
+background: #09090c !important;
+background-color: #09090c !important;
+print-color-adjust: exact;
+-webkit-print-color-adjust: exact;
+}
 
-  body {
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-weight: 300;
-    overflow-x: hidden;
-  }
+body {
+color: var(–text);
+font-family: var(–font-mono);
+font-weight: 300;
+overflow-x: hidden;
+}
 
-  /* EDITION STRIP */
-  .edition-strip {
-    background: var(--text) !important;
-    color: var(--bg);
-    padding: 0.4rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
+/* EDITION STRIP */
+.edition-strip {
+background: var(–text) !important;
+color: var(–bg);
+padding: 0.4rem 2rem;
+display: flex;
+justify-content: space-between;
+font-family: var(–font-mono);
+font-size: 0.55rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+}
 
-  /* MASTHEAD */
-  .masthead {
-    border-bottom: 3px solid var(--text);
-    padding: 0 2rem;
-    background: #09090c !important;
-  }
+/* MASTHEAD */
+.masthead {
+border-bottom: 3px solid var(–text);
+padding: 0 2rem;
+background: #09090c !important;
+}
 
-  .masthead-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    background: #09090c !important;
-  }
+.masthead-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.75rem 0;
+border-bottom: 1px solid var(–rule);
+font-size: 0.6rem;
+letter-spacing: 0.15em;
+color: var(–text-dim);
+background: #09090c !important;
+}
 
-  .masthead-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0 0;
-    text-align: center;
-    background: #09090c !important;
-  }
+.masthead-main {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2rem 0 0;
+text-align: center;
+background: #09090c !important;
+}
 
-  .site-title {
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 15vw, 13rem);
-    line-height: 0.9;
-    letter-spacing: 0.05em;
-    display: flex;
-    gap: 0.15em;
-  }
+.site-title {
+font-family: var(–font-display);
+font-size: clamp(5rem, 15vw, 13rem);
+line-height: 0.9;
+letter-spacing: 0.05em;
+display: flex;
+gap: 0.15em;
+}
 
-  .site-title-first { color: var(--text); }
-  .site-title-last {
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--blue);
-    text-shadow: 0 0 40px rgba(0,200,240,0.2);
-  }
+.site-title-first { color: var(–text); }
+.site-title-last {
+color: transparent;
+-webkit-text-stroke: 1.5px var(–blue);
+text-shadow: 0 0 40px rgba(0,200,240,0.2);
+}
 
-  .masthead-sub {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.25em;
-    color: var(--text-dim);
-    margin-top: 0.75rem;
-    text-transform: uppercase;
-  }
+.masthead-sub {
+font-family: var(–font-mono);
+font-size: 0.62rem;
+letter-spacing: 0.25em;
+color: var(–text-dim);
+margin-top: 0.75rem;
+text-transform: uppercase;
+}
 
-  .masthead-nav {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid var(--rule);
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-    background: #09090c !important;
-  }
+.masthead-nav {
+display: flex;
+justify-content: center;
+border-top: 1px solid var(–rule);
+margin-top: 1.5rem;
+flex-wrap: wrap;
+background: #09090c !important;
+}
 
-  .masthead-nav a {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    text-decoration: none;
-    padding: 0.6rem 1.25rem;
-    border-right: 1px solid var(--rule);
-    transition: color 0.2s, background 0.2s;
-  }
+.masthead-nav a {
+font-family: var(–font-mono);
+font-size: 0.62rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–text-mid);
+text-decoration: none;
+padding: 0.6rem 1.25rem;
+border-right: 1px solid var(–rule);
+transition: color 0.2s, background 0.2s;
+}
 
-  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
-  .masthead-nav a:hover { background: rgba(255,255,255,0.03); }
-  .masthead-nav a.nav-blue:hover   { color: var(--blue); }
-  .masthead-nav a.nav-red:hover    { color: var(--red); }
-  .masthead-nav a.nav-amber:hover  { color: var(--amber); }
-  .masthead-nav a.nav-green:hover  { color: var(--green); }
-  .masthead-nav a.nav-violet:hover { color: var(--violet); }
-  .masthead-nav a.nav-plain:hover  { color: var(--text); }
+.masthead-nav a:first-child { border-left: 1px solid var(–rule); }
+.masthead-nav a:hover { background: rgba(255,255,255,0.03); }
+.masthead-nav a.nav-blue:hover   { color: var(–blue); }
+.masthead-nav a.nav-red:hover    { color: var(–red); }
+.masthead-nav a.nav-amber:hover  { color: var(–amber); }
+.masthead-nav a.nav-green:hover  { color: var(–green); }
+.masthead-nav a.nav-violet:hover { color: var(–violet); }
+.masthead-nav a.nav-plain:hover  { color: var(–text); }
 
-  /* MAIN */
-  main {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    background: #09090c !important;
-  }
+/* MAIN */
+main {
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 2rem;
+background: #09090c !important;
+}
 
-  /* PROFESSIONAL LEAD */
-  .lead-story {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid var(--rule);
-    padding: 3rem 0;
-    gap: 4rem;
-    background: #09090c !important;
-  }
+/* PROFESSIONAL LEAD */
+.lead-story {
+display: grid;
+grid-template-columns: 1fr 1fr;
+border-bottom: 1px solid var(–rule);
+padding: 3rem 0;
+gap: 4rem;
+background: #09090c !important;
+}
 
-  .story-zone-tag {
-    font-size: 0.58rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: var(--blue);
-  }
+.story-zone-tag {
+font-size: 0.58rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+margin-bottom: 1rem;
+display: flex;
+align-items: center;
+gap: 0.6rem;
+color: var(–blue);
+}
 
-  .story-zone-tag::before {
-    content: '';
-    width: 20px;
-    height: 2px;
-    background: currentColor;
-    box-shadow: 0 0 8px currentColor;
-    display: inline-block;
-    flex-shrink: 0;
-  }
+.story-zone-tag::before {
+content: ‘’;
+width: 20px;
+height: 2px;
+background: currentColor;
+box-shadow: 0 0 8px currentColor;
+display: inline-block;
+flex-shrink: 0;
+}
 
-  .lead-headline {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-  }
+.lead-headline {
+font-family: var(–font-display);
+font-size: clamp(2.5rem, 5vw, 5rem);
+line-height: 1;
+letter-spacing: 0.02em;
+color: var(–text);
+margin-bottom: 1.5rem;
+}
 
-  .lead-tagline {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    color: var(--text-mid);
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-  }
+.lead-tagline {
+font-family: var(–font-serif);
+font-style: italic;
+font-size: clamp(1rem, 1.8vw, 1.2rem);
+color: var(–text-mid);
+margin-bottom: 1.5rem;
+line-height: 1.5;
+}
 
-  .lead-body {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: var(--text-mid);
-    max-width: 420px;
-  }
+.lead-body {
+font-size: 0.82rem;
+line-height: 1.8;
+color: var(–text-mid);
+max-width: 420px;
+}
 
-  .lead-body strong { color: var(--text); font-weight: 400; }
+.lead-body strong { color: var(–text); font-weight: 400; }
 
-  .lead-meta {
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    color: var(--text-dim);
-    margin-top: 1.5rem;
-    text-transform: uppercase;
-  }
+.lead-meta {
+font-size: 0.58rem;
+letter-spacing: 0.2em;
+color: var(–text-dim);
+margin-top: 1.5rem;
+text-transform: uppercase;
+}
 
-  /* Headline stats */
-  .lead-stats {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    flex-wrap: wrap;
-  }
+/* Headline stats */
+.lead-stats {
+display: flex;
+gap: 2rem;
+margin-top: 2rem;
+padding-top: 1.5rem;
+border-top: 1px solid var(–rule);
+flex-wrap: wrap;
+}
 
-  .lead-stat-val {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--blue);
-    line-height: 1;
-  }
+.lead-stat-val {
+font-family: var(–font-display);
+font-size: 1.8rem;
+color: var(–blue);
+line-height: 1;
+}
 
-  .lead-stat-label {
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
+.lead-stat-label {
+font-size: 0.55rem;
+letter-spacing: 0.15em;
+color: var(–text-dim);
+text-transform: uppercase;
+margin-top: 0.2rem;
+}
 
-  /* Professional cards */
-  .lead-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    align-self: start;
-  }
+/* Professional cards */
+.lead-visual {
+display: flex;
+flex-direction: column;
+gap: 1px;
+align-self: start;
+}
 
-  .lead-visual-card {
-    background: var(--bg-2) !important;
-    padding: 1.75rem 2rem;
-    border-left: 2px solid var(--blue);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s, box-shadow 0.2s;
-  }
+.lead-visual-card {
+background: var(–bg-2) !important;
+padding: 1.75rem 2rem;
+border-left: 2px solid var(–blue);
+text-decoration: none;
+color: inherit;
+transition: background 0.2s, box-shadow 0.2s;
+}
 
-  .lead-visual-card:hover {
-    background: var(--bg-3) !important;
-    box-shadow: inset 0 0 40px rgba(0,200,240,0.04);
-  }
+.lead-visual-card:hover {
+background: var(–bg-3) !important;
+box-shadow: inset 0 0 40px rgba(0,200,240,0.04);
+}
 
-  .lvc-label {
-    font-size: 0.52rem;
-    letter-spacing: 0.25em;
-    color: var(--blue);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
+.lvc-label {
+font-size: 0.52rem;
+letter-spacing: 0.25em;
+color: var(–blue);
+text-transform: uppercase;
+margin-bottom: 0.5rem;
+}
 
-  .lvc-title {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-  }
+.lvc-title {
+font-family: var(–font-serif);
+font-size: 1rem;
+line-height: 1.35;
+color: var(–text);
+margin-bottom: 0.4rem;
+}
 
-  .lvc-desc {
-    font-size: 0.72rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-  }
+.lvc-desc {
+font-size: 0.72rem;
+color: var(–text-dim);
+line-height: 1.6;
+}
 
-  .lvc-more {
-    display: inline-block;
-    margin-top: 0.75rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--blue);
-    border-bottom: 1px solid var(--blue);
-    padding-bottom: 1px;
-  }
+.lvc-more {
+display: inline-block;
+margin-top: 0.75rem;
+font-size: 0.55rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–blue);
+border-bottom: 1px solid var(–blue);
+padding-bottom: 1px;
+}
 
-  /* PERSONAL SECTION HEADER */
-  .personal-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 0 1.5rem;
-    border-bottom: 1px solid var(--rule);
-    background: #09090c !important;
-  }
+/* PERSONAL SECTION HEADER */
+.personal-header {
+display: flex;
+align-items: center;
+gap: 1.5rem;
+padding: 2rem 0 1.5rem;
+border-bottom: 1px solid var(–rule);
+background: #09090c !important;
+}
 
-  .personal-header h2 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    white-space: nowrap;
-  }
+.personal-header h2 {
+font-family: var(–font-display);
+font-size: 1.2rem;
+letter-spacing: 0.15em;
+color: var(–text-dim);
+white-space: nowrap;
+}
 
-  .personal-header::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
+.personal-header::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: var(–rule);
+}
 
-  /* BROADSHEET — 4 columns for personal */
-  .broadsheet {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--rule);
-  }
+/* BROADSHEET — 4 columns for personal */
+.broadsheet {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+border-bottom: 1px solid var(–rule);
+background: var(–rule);
+}
 
-  .broadsheet-col {
-    background: #09090c !important;
-    padding: 2rem 1.75rem;
-    border-right: 1px solid var(--rule);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.25s;
-    position: relative;
-  }
+.broadsheet-col {
+background: #09090c !important;
+padding: 2rem 1.75rem;
+border-right: 1px solid var(–rule);
+text-decoration: none;
+color: inherit;
+transition: background 0.25s;
+position: relative;
+}
 
-  .broadsheet-col:last-child { border-right: none; }
+.broadsheet-col:last-child { border-right: none; }
 
-  .broadsheet-col::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--col-accent);
-    box-shadow: 0 0 15px var(--col-accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-  }
+.broadsheet-col::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+background: var(–col-accent);
+box-shadow: 0 0 15px var(–col-accent);
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.35s ease;
+}
 
-  .broadsheet-col:hover::before { transform: scaleX(1); }
-  .broadsheet-col:hover { background: rgba(255,255,255,0.015) !important; }
+.broadsheet-col:hover::before { transform: scaleX(1); }
+.broadsheet-col:hover { background: rgba(255,255,255,0.015) !important; }
 
-  .col-tag {
-    font-size: 0.52rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--col-accent);
-    margin-bottom: 0.6rem;
-  }
+.col-tag {
+font-size: 0.52rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–col-accent);
+margin-bottom: 0.6rem;
+}
 
-  .col-name {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    color: var(--col-accent);
-    margin-bottom: 0.75rem;
-    line-height: 1.1;
-  }
+.col-name {
+font-family: var(–font-display);
+font-size: 1.1rem;
+letter-spacing: 0.05em;
+color: var(–col-accent);
+margin-bottom: 0.75rem;
+line-height: 1.1;
+}
 
-  .col-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
+.col-headline {
+font-family: var(–font-serif);
+font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+line-height: 1.3;
+margin-bottom: 0.75rem;
+color: var(–text);
+}
 
-  .col-desc {
-    font-size: 0.75rem;
-    line-height: 1.75;
-    color: var(--text-mid);
-  }
+.col-desc {
+font-size: 0.75rem;
+line-height: 1.75;
+color: var(–text-mid);
+}
 
-  .col-more {
-    display: inline-block;
-    margin-top: 1.25rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--col-accent);
-    border-bottom: 1px solid var(--col-accent);
-    padding-bottom: 2px;
-  }
+.col-more {
+display: inline-block;
+margin-top: 1.25rem;
+font-size: 0.55rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–col-accent);
+border-bottom: 1px solid var(–col-accent);
+padding-bottom: 2px;
+}
 
-  .col-motorsport { --col-accent: var(--red); }
-  .col-food       { --col-accent: var(--amber); }
-  .col-travel     { --col-accent: var(--green); }
-  .col-art        { --col-accent: var(--violet); }
+.col-motorsport { –col-accent: var(–red); }
+.col-food       { –col-accent: var(–amber); }
+.col-travel     { –col-accent: var(–green); }
+.col-art        { –col-accent: var(–violet); }
 
-  /* BOTTOM STRIP */
-  .bottom-strip {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 0;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    flex-wrap: wrap;
-    gap: 1rem;
-    background: #09090c !important;
-  }
+/* BOTTOM STRIP */
+.bottom-strip {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.5rem 0;
+font-size: 0.6rem;
+letter-spacing: 0.15em;
+color: var(–text-dim);
+flex-wrap: wrap;
+gap: 1rem;
+background: #09090c !important;
+}
 
-  .bottom-links { display: flex; gap: 2rem; }
-  .bottom-links a {
-    color: var(--text-mid);
-    text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: 0.2em;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-  }
-  .bottom-links a:hover { color: var(--text); }
+.bottom-links { display: flex; gap: 2rem; }
+.bottom-links a {
+color: var(–text-mid);
+text-decoration: none;
+transition: color 0.2s;
+letter-spacing: 0.2em;
+font-size: 0.6rem;
+text-transform: uppercase;
+}
+.bottom-links a:hover { color: var(–text); }
 
-  /* RESPONSIVE */
-  @media (max-width: 1000px) {
-    .broadsheet { grid-template-columns: repeat(2, 1fr); }
-    .broadsheet-col:nth-child(2) { border-right: none; }
-    .broadsheet-col:nth-child(1),
-    .broadsheet-col:nth-child(2) { border-bottom: 1px solid var(--rule); }
-  }
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+.broadsheet { grid-template-columns: repeat(2, 1fr); }
+.broadsheet-col:nth-child(2) { border-right: none; }
+.broadsheet-col:nth-child(1),
+.broadsheet-col:nth-child(2) { border-bottom: 1px solid var(–rule); }
+}
 
-  @media (max-width: 768px) {
-    .lead-story { grid-template-columns: 1fr; gap: 2rem; }
-    .broadsheet { grid-template-columns: 1fr; }
-    .broadsheet-col { border-right: none !important; border-bottom: 1px solid var(--rule); }
-    .masthead-nav { flex-wrap: wrap; }
-    .site-title { font-size: clamp(3.5rem, 18vw, 8rem); }
-    .edition-strip { display: none; }
-    .lead-stats { gap: 1.5rem; }
-  }
+@media (max-width: 768px) {
+.lead-story { grid-template-columns: 1fr; gap: 2rem; }
+.broadsheet { grid-template-columns: 1fr; }
+.broadsheet-col { border-right: none !important; border-bottom: 1px solid var(–rule); }
+.masthead-nav { flex-wrap: wrap; }
+.site-title { font-size: clamp(3.5rem, 18vw, 8rem); }
+.edition-strip { display: none; }
+.lead-stats { gap: 1.5rem; }
+}
 
-  body { animation: pageFade 0.6s ease; }
-  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+body { animation: pageFade 0.6s ease; }
+@keyframes pageFade { from{opacity:0}to{opacity:1} }
 </style>
+
 </head>
 <body>
 
@@ -487,90 +489,68 @@
 <main>
 
   <!-- PROFESSIONAL LEAD -->
+
   <section class="lead-story">
     <div>
       <p class="story-zone-tag">Professional</p>
       <h1 class="lead-headline">Finance Director.<br>AI Strategist.<br>Interesting Human.</h1>
       <p class="lead-tagline">The numbers of the past. The technology of the future.</p>
       <p class="lead-body">
-        Working at the intersection of <strong>regulated finance and emerging AI</strong> — understanding where the technology genuinely creates value, and where the hype needs challenging. FCA qualified. Based in Hampshire. Member of the AI Growth Alliance.
+        Working at the intersection of <strong>regulated finance and emerging AI</strong> — understanding where the technology genuinely creates value, and where the hype needs challenging. FCA qualified. Based in Hampshire. Member of the AI Growth Alliance. <strong>Interesting human.</strong>
       </p>
       <p class="lead-meta">Finance · Artificial Intelligence · AIGA Hampshire</p>
-      <div class="lead-stats">
-        <div>
-          <div class="lead-stat-val">15+</div>
-          <div class="lead-stat-label">Years' experience</div>
-        </div>
-        <div>
-          <div class="lead-stat-val">£12m</div>
-          <div class="lead-stat-label">EOT tax saving delivered</div>
-        </div>
-        <div>
-          <div class="lead-stat-val">FCA</div>
-          <div class="lead-stat-label">Fellow Chartered Accountant</div>
-        </div>
-      </div>
     </div>
     <div class="lead-visual">
       <a href="ai-finance-page.html" class="lead-visual-card">
-        <p class="lvc-label">Artificial Intelligence</p>
-        <p class="lvc-title">The Professional Side — AI Strategy & the AIGA</p>
-        <p class="lvc-desc">Articles, videos, tips and the work I'm doing with the AI Growth Alliance across Hampshire and the Solent.</p>
+        <p class="lvc-label">AI & Finance</p>
+        <p class="lvc-title">The Professional Side — AI Strategy, Finance & the AIGA</p>
+        <p class="lvc-desc">Career, credentials, AI writing and the work I'm doing with the AI Growth Alliance across Hampshire and the Solent.</p>
         <span class="lvc-more">Read more →</span>
-      </a>
-      <a href="ai-finance-page.html" class="lead-visual-card">
-        <p class="lvc-label">Finance & FCA</p>
-        <p class="lvc-title">The Professional Side — Career & Finance</p>
-        <p class="lvc-desc">15+ years as a Finance Director and FCA. Career history, key skills, and the commercial thinking behind the numbers.</p>
-        <span class="lvc-more">Read more →</span>
-      </a>
-      <a href="contact-page.html" class="lead-visual-card" style="border-left-color: rgba(0,200,240,0.3);">
-        <p class="lvc-label">Get in touch</p>
-        <p class="lvc-title">Collaborations, commissions, or just to talk F1</p>
-        <p class="lvc-desc">Connect via LinkedIn or use the contact form. CV available on request.</p>
-        <span class="lvc-more">Contact →</span>
       </a>
     </div>
   </section>
 
   <!-- PERSONAL SECTION -->
+
   <div class="personal-header">
     <h2>PERSONAL</h2>
   </div>
 
   <div class="broadsheet">
 
-    <a href="motorsport-page.html" class="broadsheet-col col-motorsport">
-      <p class="col-tag">Motorsport</p>
-      <p class="col-name">The Pit Stop Pages</p>
-      <h2 class="col-headline">F1, the Paddock & the Pursuit of Tenths</h2>
-      <p class="col-desc">Race reviews, team news and analysis from Formula 1 and the supporting series. Plus dispatches from Silverstone, Le Mans, Thruxton and beyond.</p>
-      <span class="col-more">Read the blog →</span>
-    </a>
+```
+<a href="motorsport-page.html" class="broadsheet-col col-motorsport">
+  <p class="col-tag">Motorsport</p>
+  <p class="col-name">The Pit Stop Pages</p>
+  <h2 class="col-headline">F1, the Paddock & the Pursuit of Tenths</h2>
+  <p class="col-desc">Race reviews, team news and analysis from Formula 1 and the supporting series. Plus dispatches from Silverstone, Le Mans, Thruxton and beyond.</p>
+  <span class="col-more">Read the blog →</span>
+</a>
 
-    <a href="food-page.html" class="broadsheet-col col-food">
-      <p class="col-tag">Food</p>
-      <p class="col-name">Grubs Up!</p>
-      <h2 class="col-headline">Recipes, Restaurants & the Thermomix Chronicles</h2>
-      <p class="col-desc">What I'm cooking, where I've eaten well, and recipes that are actually worth making. Honest, practical, and written by someone who takes food seriously.</p>
-      <span class="col-more">See the recipes →</span>
-    </a>
+<a href="food-page.html" class="broadsheet-col col-food">
+  <p class="col-tag">Food</p>
+  <p class="col-name">Grubs Up!</p>
+  <h2 class="col-headline">Recipes, Restaurants & the Thermomix Chronicles</h2>
+  <p class="col-desc">What I'm cooking, where I've eaten well, and recipes that are actually worth making. Honest, practical, and written by someone who takes food seriously.</p>
+  <span class="col-more">See the recipes →</span>
+</a>
 
-    <a href="travel-page.html" class="broadsheet-col col-travel">
-      <p class="col-tag">Travel</p>
-      <p class="col-name">Air Miles, and Miles</p>
-      <h2 class="col-headline">Places Worth Going & the Stories They Leave</h2>
-      <p class="col-desc">Fly-and-flop holidays, multi-centre tours, city breaks. Always with an opinion and a restaurant recommendation.</p>
-      <span class="col-more">Explore the trips →</span>
-    </a>
+<a href="travel-page.html" class="broadsheet-col col-travel">
+  <p class="col-tag">Travel</p>
+  <p class="col-name">Air Miles, and Miles</p>
+  <h2 class="col-headline">Places Worth Going & the Stories They Leave</h2>
+  <p class="col-desc">Fly-and-flop holidays, multi-centre tours, city breaks. Always with an opinion and a restaurant recommendation.</p>
+  <span class="col-more">Explore the trips →</span>
+</a>
 
-    <a href="art-page.html" class="broadsheet-col col-art">
-      <p class="col-tag">Art</p>
-      <p class="col-name">The Studio</p>
-      <h2 class="col-headline">Watercolours, Acrylics & the Joy of Making Something</h2>
-      <p class="col-desc">Not always successful, always enjoyable. A gallery of what gets made when the laptop is closed and the brushes come out.</p>
-      <span class="col-more">See the work →</span>
-    </a>
+<a href="art-page.html" class="broadsheet-col col-art">
+  <p class="col-tag">Art</p>
+  <p class="col-name">The Studio</p>
+  <h2 class="col-headline">Watercolours, Acrylics & the Joy of Making Something</h2>
+  <p class="col-desc">Not always successful, always enjoyable. A gallery of what gets made when the laptop is closed and the brushes come out.</p>
+  <span class="col-more">See the work →</span>
+</a>
+```
 
   </div>
 
