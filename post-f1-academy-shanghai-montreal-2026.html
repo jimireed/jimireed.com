@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Academy Is Back. — The Pit Stop Pages — Jimi Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #09090c; --bg-2: #111116; --bg-3: #16161d;
+    --text: #f0f0f5; --text-dim: #58586a; --text-mid: #9090aa;
+    --blue: #00c8f0; --red: #f02840; --amber: #f0a800; --green: #00e87a; --violet: #a855f7;
+    --rule: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html, body { background: #09090c !important; background-color: #09090c !important; scroll-behavior: smooth; }
+  body { color: var(--text); font-family: var(--font-mono); font-weight: 300; overflow-x: hidden; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+  /* EDITION STRIP */
+  .edition-strip { background: var(--text) !important; color: var(--bg); padding: 0.4rem 2rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; }
+
+  /* MASTHEAD */
+  .masthead { border-bottom: 3px solid var(--text); background: #09090c !important; }
+  .masthead-top { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 2rem; border-bottom: 1px solid var(--rule); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-dim); background: #09090c !important; }
+  .masthead-main { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 0 0; text-align: center; background: #09090c !important; }
+  .site-title { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9; letter-spacing: 0.05em; display: flex; gap: 0.15em; text-decoration: none; }
+  .site-title-first { color: var(--text); }
+  .site-title-last { color: transparent; -webkit-text-stroke: 1.5px var(--blue); text-shadow: 0 0 40px rgba(0,200,240,0.2); }
+  .masthead-nav { display: flex; justify-content: center; margin-top: 1.5rem; border-top: 1px solid var(--rule); background: #09090c !important; flex-wrap: wrap; }
+  .masthead-nav a { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; padding: 0.6rem 1.5rem; border-right: 1px solid var(--rule); transition: color 0.2s; }
+  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+  .masthead-nav a.active { color: var(--red); border-bottom: 2px solid var(--red); }
+  .masthead-nav a.nav-blue:hover { color: var(--blue); } .masthead-nav a.nav-red:hover { color: var(--red); }
+  .masthead-nav a.nav-amber:hover { color: var(--amber); } .masthead-nav a.nav-green:hover { color: var(--green); }
+  .masthead-nav a.nav-violet:hover { color: var(--violet); }
+
+  /* BREADCRUMB */
+  .breadcrumb { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem 0; display: flex; align-items: center; gap: 0.75rem; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); background: #09090c !important; }
+  .breadcrumb a { color: var(--red); text-decoration: none; transition: opacity 0.2s; }
+  .breadcrumb a:hover { opacity: 0.7; }
+  .breadcrumb span { color: var(--text-dim); }
+
+  /* ARTICLE */
+  article { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 4rem; background: #09090c !important; }
+
+  .post-category { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: #f02840; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .post-category::before { content: ''; width: 20px; height: 2px; background: #f02840; box-shadow: 0 0 8px #f02840; display: inline-block; }
+
+  .post-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.75rem; }
+  .post-subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(1rem, 2vw, 1.3rem); color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.4; }
+  .post-meta { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+
+  /* ARTICLE BODY */
+  .post-body { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.85; color: var(--text-mid); }
+  .post-body p { margin-bottom: 1.5rem; }
+  .post-body p:first-child { font-size: 1.15rem; color: var(--text); }
+  .post-body strong { color: var(--text); font-weight: 700; }
+  .post-body em { font-style: italic; color: var(--text-mid); }
+
+  .result-block { margin: 2.5rem 0; padding: 1.25rem 1.5rem; border-top: 2px solid #f02840; border-left: 2px solid #f02840; background: var(--bg-2) !important; }
+  .result-label { font-size: 0.52rem; letter-spacing: 0.3em; text-transform: uppercase; color: #f02840; margin-bottom: 0.4rem; }
+  .result-text { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text); line-height: 1.6; }
+
+  .section-subhead { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.05em; color: #f02840; margin: 2rem 0 1rem; }
+
+  .bullet-point { padding-left: 1.5rem; margin-bottom: 1.25rem; border-left: 2px solid rgba(240,40,64,0.2); }
+  .bullet-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #f02840; margin-bottom: 0.3rem; }
+
+  /* PREV/NEXT NAV */
+  .post-nav { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); }
+  .post-nav a { background: var(--bg-2) !important; padding: 1.5rem; text-decoration: none; color: inherit; transition: background 0.2s; display: block; }
+  .post-nav a:hover { background: var(--bg-3) !important; }
+  .post-nav-label { font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: #f02840; margin-bottom: 0.5rem; }
+  .post-nav-title { font-family: var(--font-serif); font-size: 0.95rem; line-height: 1.35; color: var(--text); }
+  .post-nav .next { text-align: right; }
+
+  /* BACK LINK */
+  .back-bar { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; background: #09090c !important; }
+  .back-link { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 860px; margin: 0 auto; flex-wrap: wrap; gap: 1rem; background: #09090c !important; }
+  footer span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  @media(max-width:600px) { .post-nav { grid-template-columns: 1fr; } .edition-strip { display: none; } }
+  body { animation: pageFade 0.5s ease; }
+  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+</style>
+</head>
+<body>
+
+<div class="edition-strip">
+  <span>Est. 2026</span>
+  <span>Finance · AI · Motorsport · Food · Travel · Art</span>
+  <span>Hampshire, England</span>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Finance & AI Professional · FCA</span>
+    <span>AIGA — AI Growth Alliance Hampshire</span>
+    <span>Vol. I</span>
+  </div>
+  <div class="masthead-main">
+    <a href="index.html" class="site-title">
+      <span class="site-title-first">JIMI</span>
+      <span class="site-title-last">REED</span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="ai-finance-page.html" class="nav-blue">AI & Finance</a>
+      <a href="motorsport-page.html" class="nav-red active">Motorsport</a>
+      <a href="food-page.html" class="nav-amber">Food</a>
+      <a href="travel-page.html" class="nav-green">Travel</a>
+      <a href="art-page.html" class="nav-violet">Art</a>
+      <a href="about-page.html">About</a>
+      <a href="contact-page.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="motorsport-page.html">The Pit Stop Pages</a>
+  <span>›</span>
+  <span>F1 News</span>
+</div>
+
+<article>
+  <p class="post-category">F1 News</p>
+  <h1 class="post-title">F1 Academy Is Back.</h1>
+  <p class="post-subtitle">Shanghai Round 1 Review & Montreal Round 2 Preview.</p>
+  <p class="post-meta">F1 Academy · Shanghai & Montreal · 2026 · Jimi Reed</p>
+  <div class="post-body">
+    <p>It quietly kicked off alongside the Chinese Grand Prix, and if you missed it — don't make that mistake again.</p>
+    <p class="section-subhead">Shanghai — Round 1 Review</p>
+    <p>Nina Gademan dominated the opening race of the 2026 F1 Academy season, leading every lap from reverse grid pole to take a thoroughly deserved victory. The Alpine driver kept a steady lead throughout, survived a Safety Car with four laps remaining, and crossed the line comfortably. Behind her, rookie <strong>Natalia Granada</strong> was brilliant in just her first ever single-seater race, finishing second. Emma Felbermayr completed the podium for Audi in third after two sharp late overtakes.</p>
+    <p>Race 2 on Sunday told a different story. Ferrari's <strong>Alba Larsen</strong> led and looked set for a comfortable win until a Safety Car bunched the field, a snap of oversteer at the restart sent her into the gravel, and Felbermayr nipped through to take victory. Drama, chaos, heartbreak — classic F1 Academy. <strong>Felbermayr leads the championship</strong> after round one.</p>
+    <p>If you haven't watched this series before, genuinely give it a go. Last year produced some cracking races — Abbi Pulling won the championship convincingly and earned herself a GB3 drive as a result. The standard is rising and the racing is often more entertaining than the main event!</p>
+    <p class="section-subhead">Montreal — Round 2 Preview</p>
+    <p>Next stop is the Circuit Gilles Villeneuve, running alongside the Canadian Grand Prix — <strong>22nd–24th May.</strong> Montreal has a history of producing chaotic, incident-filled races, and a street circuit with walls, variable grip levels and the ever-present threat of a Safety Car should make for another brilliant F1 Academy weekend.</p>
+    <p>Felbermayr leads the championship but Palmowski, who took pole in Shanghai and finished second overall across the weekend, will be pushing hard. Gademan knows she has race-winning pace too. It's tight at the top — exactly as it should be.</p>
+    <p>Worth your time. Set a reminder.</p>
+  </div>
+</article>
+
+<div class="post-nav">
+  <a href="post-indycar-mclaughlin-barber-2026.html" class="prev"><p class="post-nav-label">← Previous</p><p class="post-nav-title">IndyCar — McLaughlin Goes Through a Fence at Barber.</p></a>
+  <div></div>
+</div>
+
+<footer>
+  <span>© 2026 Jimi Reed</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/jimi-reed-fca-75992b1a">LinkedIn</a>
+    <a href="contact-page.html">Contact</a>
+    <a href="contact-page.html#cv">Request CV</a>
+  </div>
+</footer>
+
+</body>
+</html>

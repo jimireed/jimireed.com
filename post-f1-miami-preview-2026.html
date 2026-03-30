@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami. Where We Find Out If This Is Real. — The Pit Stop Pages — Jimi Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #09090c; --bg-2: #111116; --bg-3: #16161d;
+    --text: #f0f0f5; --text-dim: #58586a; --text-mid: #9090aa;
+    --blue: #00c8f0; --red: #f02840; --amber: #f0a800; --green: #00e87a; --violet: #a855f7;
+    --rule: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html, body { background: #09090c !important; background-color: #09090c !important; scroll-behavior: smooth; }
+  body { color: var(--text); font-family: var(--font-mono); font-weight: 300; overflow-x: hidden; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+  /* EDITION STRIP */
+  .edition-strip { background: var(--text) !important; color: var(--bg); padding: 0.4rem 2rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; }
+
+  /* MASTHEAD */
+  .masthead { border-bottom: 3px solid var(--text); background: #09090c !important; }
+  .masthead-top { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 2rem; border-bottom: 1px solid var(--rule); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-dim); background: #09090c !important; }
+  .masthead-main { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 0 0; text-align: center; background: #09090c !important; }
+  .site-title { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9; letter-spacing: 0.05em; display: flex; gap: 0.15em; text-decoration: none; }
+  .site-title-first { color: var(--text); }
+  .site-title-last { color: transparent; -webkit-text-stroke: 1.5px var(--blue); text-shadow: 0 0 40px rgba(0,200,240,0.2); }
+  .masthead-nav { display: flex; justify-content: center; margin-top: 1.5rem; border-top: 1px solid var(--rule); background: #09090c !important; flex-wrap: wrap; }
+  .masthead-nav a { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; padding: 0.6rem 1.5rem; border-right: 1px solid var(--rule); transition: color 0.2s; }
+  .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+  .masthead-nav a.active { color: var(--red); border-bottom: 2px solid var(--red); }
+  .masthead-nav a.nav-blue:hover { color: var(--blue); } .masthead-nav a.nav-red:hover { color: var(--red); }
+  .masthead-nav a.nav-amber:hover { color: var(--amber); } .masthead-nav a.nav-green:hover { color: var(--green); }
+  .masthead-nav a.nav-violet:hover { color: var(--violet); }
+
+  /* BREADCRUMB */
+  .breadcrumb { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem 0; display: flex; align-items: center; gap: 0.75rem; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); background: #09090c !important; }
+  .breadcrumb a { color: var(--red); text-decoration: none; transition: opacity 0.2s; }
+  .breadcrumb a:hover { opacity: 0.7; }
+  .breadcrumb span { color: var(--text-dim); }
+
+  /* ARTICLE */
+  article { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 4rem; background: #09090c !important; }
+
+  .post-category { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: #f02840; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .post-category::before { content: ''; width: 20px; height: 2px; background: #f02840; box-shadow: 0 0 8px #f02840; display: inline-block; }
+
+  .post-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.75rem; }
+  .post-subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(1rem, 2vw, 1.3rem); color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.4; }
+  .post-meta { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+
+  /* ARTICLE BODY */
+  .post-body { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.85; color: var(--text-mid); }
+  .post-body p { margin-bottom: 1.5rem; }
+  .post-body p:first-child { font-size: 1.15rem; color: var(--text); }
+  .post-body strong { color: var(--text); font-weight: 700; }
+  .post-body em { font-style: italic; color: var(--text-mid); }
+
+  .result-block { margin: 2.5rem 0; padding: 1.25rem 1.5rem; border-top: 2px solid #f02840; border-left: 2px solid #f02840; background: var(--bg-2) !important; }
+  .result-label { font-size: 0.52rem; letter-spacing: 0.3em; text-transform: uppercase; color: #f02840; margin-bottom: 0.4rem; }
+  .result-text { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text); line-height: 1.6; }
+
+  .section-subhead { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.05em; color: #f02840; margin: 2rem 0 1rem; }
+
+  .bullet-point { padding-left: 1.5rem; margin-bottom: 1.25rem; border-left: 2px solid rgba(240,40,64,0.2); }
+  .bullet-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #f02840; margin-bottom: 0.3rem; }
+
+  /* PREV/NEXT NAV */
+  .post-nav { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); }
+  .post-nav a { background: var(--bg-2) !important; padding: 1.5rem; text-decoration: none; color: inherit; transition: background 0.2s; display: block; }
+  .post-nav a:hover { background: var(--bg-3) !important; }
+  .post-nav-label { font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: #f02840; margin-bottom: 0.5rem; }
+  .post-nav-title { font-family: var(--font-serif); font-size: 0.95rem; line-height: 1.35; color: var(--text); }
+  .post-nav .next { text-align: right; }
+
+  /* BACK LINK */
+  .back-bar { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; background: #09090c !important; }
+  .back-link { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 860px; margin: 0 auto; flex-wrap: wrap; gap: 1rem; background: #09090c !important; }
+  footer span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  @media(max-width:600px) { .post-nav { grid-template-columns: 1fr; } .edition-strip { display: none; } }
+  body { animation: pageFade 0.5s ease; }
+  @keyframes pageFade { from{opacity:0}to{opacity:1} }
+</style>
+</head>
+<body>
+
+<div class="edition-strip">
+  <span>Est. 2026</span>
+  <span>Finance · AI · Motorsport · Food · Travel · Art</span>
+  <span>Hampshire, England</span>
+</div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Finance & AI Professional · FCA</span>
+    <span>AIGA — AI Growth Alliance Hampshire</span>
+    <span>Vol. I</span>
+  </div>
+  <div class="masthead-main">
+    <a href="index.html" class="site-title">
+      <span class="site-title-first">JIMI</span>
+      <span class="site-title-last">REED</span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="ai-finance-page.html" class="nav-blue">AI & Finance</a>
+      <a href="motorsport-page.html" class="nav-red active">Motorsport</a>
+      <a href="food-page.html" class="nav-amber">Food</a>
+      <a href="travel-page.html" class="nav-green">Travel</a>
+      <a href="art-page.html" class="nav-violet">Art</a>
+      <a href="about-page.html">About</a>
+      <a href="contact-page.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="motorsport-page.html">The Pit Stop Pages</a>
+  <span>›</span>
+  <span>F1 Reviews</span>
+</div>
+
+<article>
+  <p class="post-category">F1 Reviews</p>
+  <h1 class="post-title">Miami. Where We Find Out If This Is Real.</h1>
+  <p class="post-subtitle">Race Preview — Round 4</p>
+  <p class="post-meta">F1 Race Preview · Miami International Autodrome · 1–3 May 2026 · Jimi Reed</p>
+  <div class="post-body">
+    <p>Before we get to Miami — a quick word on why we're jumping straight from Japan at the end of March to Florida in May with nothing in between.</p>
+    <p>The Bahrain and Saudi Arabian Grands Prix, originally scheduled for April 12th and 19th respectively, have been officially cancelled due to the <strong>ongoing conflict in the Middle East.</strong> F1 and the FIA confirmed neither event will be replaced on the 2026 calendar, meaning the season drops from 24 races to 22. Our thoughts are with everyone affected by the situation in the region. Both Bahrain and Saudi Arabia are significant parts of the F1 calendar, and we hope to see them back as soon as circumstances allow.</p>
+    <p>On the bright side, the five-week gap has given the teams a chance to catch up on development — and with several of them clearly off the pace of Mercedes, that time will have to be well spent.</p>
+    <p>Three races in, Mercedes have won all three, a teenager is leading the championship, and McLaren are far from the team we saw last year! Welcome to F1 2026!!</p>
+    <p>Miami gives us our first real test of whether the pecking order we've seen so far reflects genuine pace or just who got their regulations package right first. Four weeks will have passed since Japan — that's a lot of time in the simulator, a lot of upgraded parts, and a lot of very motivated engineers at McLaren, Red Bull and Ferrari who will be desperate to close the gap.</p>
+    <p class="section-subhead">What to watch for</p>
+    <div class="bullet-point"><p class="bullet-label">Antonelli vs Russell</p><p>This is THE story of the season so far. Two teammates, separated by just a handful of points, both capable of winning. Toto Wolff must be loving and dreading it in equal measure.</p></div>
+    <div class="bullet-point"><p class="bullet-label">McLaren's Resurrection</p><p>Norris and Piastri are desperate for points. Both cars failed to start in China. Piastri crashed in Australia before the race even began. Norris has a solitary fifth to his name as reigning champion. Miami's fast, flowing layout should suit them better — and if they bring upgrades, this could be the weekend they announce themselves.</p></div>
+    <div class="bullet-point"><p class="bullet-label">Ferrari's Strategy</p><p>The pace is there. The starts are sensational. But the strategic decisions under pressure have cost them already this season. Get it right in Miami and they could win. Get it wrong again and we'll be having the same conversation after Barcelona.</p></div>
+    <div class="bullet-point"><p class="bullet-label">Lewis Hamilton</p><p>Still looking for that first Ferrari win. Miami was the scene of some fun racing last year. He'll be motivated.</p></div>
+    <div class="bullet-point"><p class="bullet-label">And Max?</p><p>Red Bull are clearly off the pace of the top two teams, and Verstappen has already been vocal about the new regulations not suiting the car (or even suiting F1!). Eighth in Japan from eleventh on the grid is not where a four-time champion expects to be. But he's Max. You write him off at your peril.</p></div>
+    <div class="result-block"><p class="result-label">Miami Grand Prix</p><p class="result-text">Miami International Autodrome · 1–3 May 2026</p></div>
+  </div>
+</article>
+
+<div class="post-nav">
+  <a href="post-f1-japan-2026.html" class="prev"><p class="post-nav-label">← Previous</p><p class="post-nav-title">Round 3 — Japan: The Kid is Serious. Very Serious.</p></a>
+  <a href="post-indycar-mclaughlin-barber-2026.html" class="next"><p class="post-nav-label">Next →</p><p class="post-nav-title">Scott McLaughlin Goes Through a Fence. Walks Away. Immediately Wants to Go Again.</p></a>
+</div>
+
+<footer>
+  <span>© 2026 Jimi Reed</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/jimi-reed-fca-75992b1a">LinkedIn</a>
+    <a href="contact-page.html">Contact</a>
+    <a href="contact-page.html#cv">Request CV</a>
+  </div>
+</footer>
+
+</body>
+</html>
